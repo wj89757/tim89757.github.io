@@ -1,7 +1,7 @@
 {
-    "name": "wj-blog",
-    "title": "wj Blog",
-    "author": "wj <tim.wang@clinks.com.cn>",
+    "name": "tim-blog",
+    "title": "Tim Blog",
+    "author": "Tim <tim.wang@clinks.com.cn>",
     "version": "1.7.0",
     "homepage": "http://wj89757.github.io",
     "repository": {
