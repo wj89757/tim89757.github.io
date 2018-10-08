@@ -5,6 +5,9 @@ subtitle:   ""
 date:       2018-10-03 06:30:00
 author:     "Tim"
 header-img: "img/redis-2.jpg"
+tags:
+    - Redis
+    - Cache
 ---
 
 > Redis缓存实践
