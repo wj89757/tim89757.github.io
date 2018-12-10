@@ -41,20 +41,20 @@ tags:
 		甚至，重复建设的系统或功能可能采用不同的技术体系，还需要储备不同技术体系的支持人员。
 		系统间集成、交互和协作成本高昂。
 
-![](img/yqdh-img/777-2.png)
+<!-- ![](img/yqdh-img/777-2.png) -->
 
 - 当今企业需要更有“韧性”的系统架构
 
-![](img/yqdh-img/666-1.png)
-![](img/yqdh-img/666-2.png)
+<!-- ![](img/yqdh-img/666-1.png) -->
+<!-- ![](img/yqdh-img/666-2.png) -->
 
 - 共性和个性分离
 		
 		快速组合，个性业务扩展，灵活业务适应
 		共性业务抽象，业务逻辑解耦
 
-![](img/yqdh-img/666-3.png)
-![](img/yqdh-img/777-1.png)
+<!-- ![](img/yqdh-img/666-3.png) -->
+<!-- ![](img/yqdh-img/777-1.png) -->
 
 - 中台战略
 		
@@ -85,22 +85,22 @@ tags:
 - 地产行业离互联网创新较远
 - AR看房，还是没有实际看来得好
 - 传统地产行业的数字化转型缺少效果	
-![](img/yqdh-img/1.jpeg)
+<!-- ![](img/yqdh-img/1.jpeg) -->
 
 #### 3. 《物流因"云"而"升"》
 
 - 仓储 ，补货机缺少数据依据，库存周转率
 - 运输 ，路径规划
 - 配送，配送过程优化
-![](img/yqdh-img/561539735100_.pic.jpg)
-![](img/yqdh-img/551539735097_.pic.jpg)
-![](img/yqdh-img/541539735096_.pic.jpg)
-![](img/yqdh-img/531539735095_.pic.jpg)
+<!-- ![](img/yqdh-img/561539735100_.pic.jpg) -->
+<!-- ![](img/yqdh-img/551539735097_.pic.jpg) -->
+<!-- ![](img/yqdh-img/541539735096_.pic.jpg) -->
+<!-- ![](img/yqdh-img/531539735095_.pic.jpg) -->
 
 #### 4. 《新制造峰会－数据智能浪潮助推新制造业转型》
 
-![](img/yqdh-img/571539735273_.pic.jpg)
-![](img/yqdh-img/581539735307_.pic.jpg)
+<!-- ![](img/yqdh-img/571539735273_.pic.jpg) -->
+<!-- ![](img/yqdh-img/581539735307_.pic.jpg) -->
 
 - 新制造是个性化服务，在规模化之外实现按需定制
 
@@ -136,7 +136,7 @@ tags:
 		实现数字化服务和新业务的乘数增长
 		mindsphere，基于云的开放式物联网操作系统，建设各式各样的应用
 
-![](img/yqdh-img/601539735361_.pic.jpg)
+<!-- ![](img/yqdh-img/601539735361_.pic.jpg)
 ![](img/yqdh-img/611539735362_.pic.jpg)
 ![](img/yqdh-img/631539735406_.pic.jpg)
 ![](img/yqdh-img/641539735406_.pic.jpg)
@@ -144,11 +144,11 @@ tags:
 ![](img/yqdh-img/671539735453_.pic.jpg)
 ![](img/yqdh-img/681539735454_.pic.jpg)
 ![](img/yqdh-img/691539735455_.pic.jpg)
-![](img/yqdh-img/701539735456_.pic.jpg)
+![](img/yqdh-img/701539735456_.pic.jpg) -->
 
 #### 5.《高德专场》
 
-![](img/yqdh-img/721539736393_.pic.jpg)￼
+<!-- ![](img/yqdh-img/721539736393_.pic.jpg)￼ -->
 
 - 积水点挖掘
 	
@@ -162,17 +162,17 @@ tags:
 		地图数据
 		数据采集>深度学习图像算法>"小白式"数据编辑>数据融合>数据发布
 
-![](img/yqdh-img/731539736393_.pic.jpg)
-![](img/yqdh-img/771539736397_.pic.jpg)
+<!-- ![](img/yqdh-img/731539736393_.pic.jpg) -->
+<!-- ![](img/yqdh-img/771539736397_.pic.jpg) -->
 
 - 算法
 		
 		路牌解析，卷积神经网络
 		位置解析，轨迹恢复/场景理解/路口解析/车道分割/
 
-![](img/yqdh-img/741539736394_.pic.jpg)
-![](img/yqdh-img/751539736395_.pic.jpg)
-![](img/yqdh-img/761539736396_.pic.jpg)
+<!-- ![](img/yqdh-img/741539736394_.pic.jpg) -->
+<!-- ![](img/yqdh-img/751539736395_.pic.jpg) -->
+<!-- ![](img/yqdh-img/761539736396_.pic.jpg) -->
 
 #### 6.《比特币真的去中心化了吗？》
 
@@ -227,9 +227,9 @@ tags:
 		形成了一个分布式的互连代理网络，以sidecar形式部署在服务两侧，
 		服务对于代理无感知，且服务间所有通信都由代理进行路由。 
 
-![](img/yqdh-img/4.png)
-![](img/yqdh-img/2.png)
-![](img/yqdh-img/3.png)
+<!-- ![](img/yqdh-img/4.png) -->
+<!-- ![](img/yqdh-img/2.png) -->
+<!-- ![](img/yqdh-img/3.png) -->
 ![](https://yqfile.alicdn.com/6185e71a1287b1580b2ad75a1f2dee088ddade10.png)
 
 - Service Mesh的实现
