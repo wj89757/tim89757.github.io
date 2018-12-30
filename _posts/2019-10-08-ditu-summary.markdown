@@ -18,7 +18,7 @@ tags:
 
 ​	主要总结地图使用上的一些技巧，还有一些踩到的一些坑和一些比较好用的第三方工具。针对百度地图marker，polygon等一些常用到的类进行使用上的见解，和分享一些总结一些封装好的util。
 
-![baidu-map](../img/baidu-map.png)
+![baidu-map](/img/baidu-map.png)
 
 ### 2.百度地图
 
