@@ -2,13 +2,11 @@
 layout:     post
 title:      "杭州2018云栖大会分享"
 subtitle:   "杭州2018云栖大会分享"
-date:       2018-10-18 17:20:00
+date:       2018-10-08 17:20:00
 author:     "Tim"
 header-img: "img/yqdh_header.png"
 tags:
-	- 云栖大会
-	- 分享
-	- 技术
+    - 云栖大会
 ---
 
 > 云栖大会分享
