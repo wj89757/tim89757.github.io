@@ -228,15 +228,12 @@ tags:
 ![](/img/yqdh-img/4.png)
 ![](/img/yqdh-img/2.png)
 ![](/img/yqdh-img/3.png)
-![](https://yqfile.alicdn.com/6185e71a1287b1580b2ad75a1f2dee088ddade10.png)
 
 - Service Mesh的实现
 
 		复用kubernate基础服务，
 		dubbo应用在构建阶段自动生成deployment和文件
 		dubbo地址注册针对kubernate扩展实现
-
-![](https://yqfile.alicdn.com/cb948c80d09e965c61fb6eee7f1b0e3dd38ec6fe.png)
 
 - 天池中间件大赛 Dubbo Mesh
 	
@@ -257,15 +254,6 @@ tags:
 		2.杭州智慧医疗让看病时间平均缩短2小时以上。
 		3.杭州市民仅凭一张身份证可以办理296项政务服务，真正做到”最多跑一次”
 		4.95%以上的超市商店和98%以上的出租车都可以使用移动支付
-
-![](https://pic2.zhimg.com/80/v2-18bea9fee3095b26bef176f48cf093fd_hd.jpg)
-![](https://pic4.zhimg.com/80/v2-6737f7a222d903934502acfc12e733a3_hd.jpg)
-![](https://pic4.zhimg.com/80/v2-e279b7418f2e35575f8254abad90dbd7_hd.jpg)
-![](https://pic4.zhimg.com/80/v2-6a08a85777b15983d17725c3b2bee913_hd.jpg)
-![](https://pic4.zhimg.com/80/v2-31d66ab5ae39cdf90ae2fef6b5da1be7_hd.jpg)
-![](https://pic1.zhimg.com/80/v2-59f3aa25d190473195ff433d4b97ac40_hd.jpg)
-![](https://pic3.zhimg.com/80/v2-5e53bf4e554a19d75f5deec1968f51e2_hd.jpg)
-![](https://pic2.zhimg.com/80/v2-178ee02329ef0666bcefe3e9e2b869b1_hd.jpg)
 
 - 数据是驱动智能未来的可持续发展
 	
