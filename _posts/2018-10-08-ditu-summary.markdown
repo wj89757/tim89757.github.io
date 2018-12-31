@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "Solr"
+title:      "各种地图探究"
 subtitle:   "各种地图探究-百度地图/谷歌地图/OpenStreetMap"
 date:       2018-10-08 17:20:00
 author:     "Tim"
