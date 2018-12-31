@@ -89,7 +89,7 @@ tags:
 
 [2.UI中国](https://www.ui.cn/)
 
-[3.设计达人|爱设计 爱分享](http://www.shejidaren.com/)
+[3.设计达人 爱设计 爱分享](http://www.shejidaren.com/)
 
 [4.学ui网—ui设计师学习教程平台](http://www.xueui.cn/)
 
