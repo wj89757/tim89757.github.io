@@ -60,3 +60,218 @@ tags:
 ![redis 和 memcached 的区别](http://my-blog-to-use.oss-cn-beijing.aliyuncs.com/18-9-24/61603179.jpg)
 
 
+### redis使用
+
+> RedisTemplate介绍
+
+​	spring 封装了 RedisTemplate 对象来进行对redis的各种操作，它支持所有的 redis 原生的 api。
+
+​	RedisTemplate中定义了对5种数据结构操作
+
+- redisTemplate.opsForValue();//操作字符串
+
+- redisTemplate.opsForHash();//操作hash
+
+- redisTemplate.opsForList();//操作list
+
+- redisTemplate.opsForSet();//操作set
+
+- redisTemplate.opsForZSet();//操作有序set
+
+  SDR默认采用的序列化策略有两种，一种是String的序列化策略，一种是JDK的序列化策略。StringRedisTemplate默认采用的是String的序列化策略，保存的key和value都是采用此策略序列化保存的。RedisTemplate默认采用的是JDK的序列化策略，保存的key和value都是采用此策略序列化保存的。**但是最好先将对象序列化进行字符串保存，这样序列化的逻辑就由我们自己保管了**
+
+  > 对RedisTemplate进一步封装
+
+  ​	**1.首先是spring配置**
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd"
+       default-lazy-init="false">
+
+    <!-- jedis 连接池配置参数：  -->
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
+        <property name="maxActive" value="1000"/>
+        <property name="maxIdle" value="50"/>
+        <property name="maxWait" value="1500"/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="testOnReturn" value="true"/>
+        <property name="testWhileIdle" value="true"/>
+    </bean>
+
+    <!--redis连接工厂 -->
+    <bean id="jedisConnectionFactory" class="org.springframework.data.redis.connection.jedis.JedisConnectionFactory" destroy-method="destroy">
+        <property name="poolConfig" ref="jedisPoolConfig" />
+        <!--IP地址 -->
+        <property name="hostName" value="${cache.redis.host}" />
+        <!--端口号  -->
+        <property name="port" value="${cache.redis.port}" />
+        <!--如果Redis设置有密码  -->
+        <property name="password" value="${cache.redis.password}" />
+        <!--客户端超时时间单位是毫秒  -->
+        <property name="timeout" value="${cache.redis.timeout}" />
+    </bean>
+
+    <!--redis操作模版,使用该对象可以操作redis  -->
+    <bean id="redisTemplate" class="org.springframework.data.redis.core.RedisTemplate" >
+        <property name="connectionFactory" ref="jedisConnectionFactory" />
+        <!--如果不配置Serializer，那么存储的时候缺省使用String，如果用User类型存储，那么会提示错误User can't cast to String！！  -->
+        <property name="keySerializer" >
+            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer" />
+        </property>
+        <property name="valueSerializer" >
+            <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer" />
+        </property>
+        <property name="hashKeySerializer">
+            <bean class="org.springframework.data.redis.serializer.StringRedisSerializer"/>
+        </property>
+        <property name="hashValueSerializer">
+            <bean class="org.springframework.data.redis.serializer.JdkSerializationRedisSerializer"/>
+        </property>
+    </bean>
+
+    <!--自定义redis工具类,在需要缓存的地方注入此类  -->
+    <bean id="cacheServiceImpl" class="<指定类>">
+        <property name="redisTemplate" ref="redisTemplate" />
+    </bean>
+
+    <context:annotation-config/>
+    <context:component-scan base-package="<指定包>"/>
+</beans>
+```
+
+​	**2.自定义redis的key**
+
+​	为了让key更好的使用，并且支持更多的类型，对key就行封装。
+
+```java
+/**
+ * @author wangjun
+ * @Date 2018/3/28
+ */
+public class CacheKey implements Serializable {
+    private String key;
+    private String category;
+
+    public static CacheKey getInstance(String key, String category) {
+        CacheKey cacheKey = new CacheKey();
+        cacheKey.setKey(key);
+        cacheKey.setCategory(category);
+        return cacheKey;
+    }
+
+    public String getKey() {
+        return key;
+    }
+
+    public void setKey(String key) {
+        this.key = key;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getKeyName() {
+        return String.format("%s-%s", category, key);
+    }
+
+    public boolean isInvalid() {
+        return StringUtils.isEmpty(key) || StringUtils.isEmpty(category);
+    }
+}
+```
+
+​	**3.自定义redis工具类**
+
+```java
+/**
+ * @author wangjun
+ * @Date 2018/2/26
+ */
+public class CacheServiceImpl {
+    private Logger logger = Logger.getLogger(getClass());
+    private RedisTemplate<String, Object> redisTemplate;
+    private static final int EXPIRE_TIME = 60 * 60 * 24;
+
+    public void setRedisTemplate(RedisTemplate<String, Object> redisTemplate) {
+        this.redisTemplate = redisTemplate;
+    }
+
+    public Object get(CacheKey key) {
+        if (key.isInvalid()) {
+            return null;
+        }
+        try {
+            Object cValue = redisTemplate.opsForValue().get(key.getKeyName());
+            return cValue;
+        } catch (Exception e) {
+            return null;
+        } 
+    }
+
+    public boolean set(CacheKey key, Object value) {
+        if (key.isInvalid()) {
+            return false;
+        }
+        try {
+            set(key, value, EXPIRE_TIME);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean set(CacheKey key, Object value, long time) {
+        if (key.isInvalid()) {
+            return false;
+        }
+        try {
+            if (time > 0) {
+                redisTemplate.opsForValue().set(key.getKeyName(), value, time, TimeUnit.SECONDS);
+            } else {
+                set(key, value);
+            }
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean delete(CacheKey key) {
+        if (key.isInvalid()) {
+            return false;
+        }
+        try {
+            redisTemplate.delete(key.getKeyName());
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public boolean hasKey(CacheKey key) {
+        try {
+            return redisTemplate.hasKey(key.getKeyName());
+        } catch (Exception e) {
+            logger.error("has key ex", e);
+            return false;
+        }
+    }
+
+    public long getExpire(CacheKey key){
+        return redisTemplate.getExpire(key.getKeyName());
+    }
+}
+```
+
+​	
+
