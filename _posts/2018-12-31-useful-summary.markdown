@@ -20,4 +20,9 @@ tags:
 
 ### 软技能
 
-    [超级演说家](http://www.iqiyi.com/a_19rrhb0yyt.html?vfm=2008_aldbd)
+[超级演说家]: http://www.iqiyi.com/a_19rrhb0yyt.html?vfm=2008_aldbd	"超级演说家"
+
+
+
+​	
+
