@@ -1,5 +1,13 @@
-[TOC]
-
+---
+layout:     post
+title:      "短视频运营"
+subtitle:   "小刘的短视频运营"
+date:       2021-01-31 21:34:00
+author:     "Tim"
+header-img: "img/post-bg-js-version.jpg"
+tags:
+    - 短视频运营
+---
 
 
 ## 目标
