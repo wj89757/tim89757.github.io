@@ -8,6 +8,7 @@ header-img: "img/post-bg-2015.jpg"
 tags:
     - Redis
     - Cache
+    - Redis缓存
 ---
 
 > Redis缓存实践
